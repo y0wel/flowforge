@@ -1,0 +1,25 @@
+name: invoice_pipeline
+steps:
+  - name: extract
+    type: extract_json
+    prompt: |
+      Extract information from this document and respond with exactly this JSON structure:
+      {
+        "vendor": "string",
+        "invoice_number": "string",
+        "total": 0.0,
+        "currency": "3-letter currency code, e.g. EUR"
+      }
+      If a field cannot be determined, use null for that field.
+  - name: validate
+    type: validate
+    required:
+      - vendor
+      - invoice_number
+      - total
+      - currency
+    numeric:
+      - total
+  - name: save
+    type: json_file
+    path: ./output/invoice_validated.json

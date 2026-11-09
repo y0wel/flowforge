@@ -1,0 +1,17 @@
+name: conditional_example
+steps:
+  - name: classify
+    type: llm
+    prompt: "Classify this document as exactly one word, lowercase: invoice, receipt, or other."
+
+  - name: process_invoice
+    type: log
+    message: "Processing invoice..."
+    when:
+      classify: invoice
+
+  - name: archive
+    type: log
+    message: "Archiving non-invoice document..."
+    when:
+      classify: other

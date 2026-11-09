@@ -1,0 +1,8 @@
+name: llm_example
+steps:
+  - name: classify
+    type: llm
+    prompt: "Classify this document"
+  - name: save
+    type: json_file
+    path: ./output/llm_result.json

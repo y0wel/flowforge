@@ -1,0 +1,7 @@
+name: extract_example
+steps:
+  - name: extract
+    type: extract_text
+  - name: show
+    type: log
+    message: "extraction done"

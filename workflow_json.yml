@@ -1,0 +1,7 @@
+name: json_output_example
+steps:
+  - name: extract
+    type: extract_text
+  - name: save
+    type: json_file
+    path: ./output/result.json

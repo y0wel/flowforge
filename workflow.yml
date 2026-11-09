@@ -1,0 +1,6 @@
+name: hello_workflow
+
+steps:
+  - name: hello
+    type: log
+    message: "Hello from FlowForge"

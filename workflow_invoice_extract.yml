@@ -1,0 +1,9 @@
+name: invoice_extract
+steps:
+  - name: extract
+    type: extract_json
+    prompt: |
+      Extract the vendor, invoice_number, total, and currency from this document.
+  - name: save
+    type: json_file
+    path: ./output/invoice_extracted.json
